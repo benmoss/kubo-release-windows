@@ -38,6 +38,11 @@ function start_flanneld {
           "nameservers": ["10.100.200.10"],
           "search": ["svc.cluster.local"]
         },
+        "ipam":  {
+          "type": "host-local",
+          "subnet": "<%= p('pod-network-cidr') %>",
+          "rangeStart": "<%= p('pod-network-cidr').split(".")[0,3].join(".")+".3" %>"
+        },
         "policies": [
           {
             "Name": "EndpointPolicy",
