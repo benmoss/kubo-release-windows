@@ -4,7 +4,7 @@ templates:
   bin/kubelet_ctl.ps1.erb: bin/kubelet_ctl.ps1
   config/apiserver-ca.pem.erb: config/apiserver-ca.pem
   config/cloud-provider.ini.erb: config/cloud-provider.ini
-  config/Dockerfile: config/Dockerfile
+  config/Dockerfile.erb: config/Dockerfile
   config/kubeconfig-drain.erb: config/kubeconfig-drain
   config/kubeconfig.erb: config/kubeconfig
   config/kubelet-client-ca.pem.erb: config/kubelet-client-ca.pem
@@ -39,6 +39,9 @@ properties:
       k8s-args:
         address: 10.0.0.1
         docker-only: null
+  nanoserver-image:
+    description: Indicate the location of the Windows nanoserver image to be used by the pause image
+    default: mcr.microsoft.com/windows/nanoserver:1809
   no_proxy:
     description: no_proxy env var for cloud provider interactions, i.e. for the kubelet
   tls.kubelet:
